@@ -1,0 +1,12 @@
+range_query(root, lower_limit, upper_limit, keys_found){
+	if(root->key >= lower_limit && root->left != NULL)
+		range_query(root->left, lower_limit, upper_limit, keys_found)
+
+	if(root->key >= lower_limit && root->key <= upper_limit)
+		keys_found.add(root->key)
+
+	if(root->right != NULL)
+		range_query(root->right, lower_limit, upper_limit, keys_found)
+
+	return
+}

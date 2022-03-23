@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.10.27)  23 MAR 2022 18:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.10.27)  23 MAR 2022 22:16
 entering extended mode
 **"./Set 1.tex"
 (Set 1.tex
@@ -906,76 +906,76 @@ Underfull \hbox (badness 10000) in paragraph at lines 50--54
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 55--59
+Underfull \hbox (badness 10000) in paragraph at lines 55--58
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 63--64
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 65--67
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 68--70
+(range_query.txt)
+Underfull \hbox (badness 10000) in paragraph at lines 68--69
 
  []
 
 [1
 
 {C:/Users/dalev/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 71--72
+Underfull \hbox (badness 10000) in paragraph at lines 70--72
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 73--83
+Underfull \hbox (badness 10000) in paragraph at lines 73--75
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 84--86
+Underfull \hbox (badness 10000) in paragraph at lines 76--77
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 87--89
+Underfull \hbox (badness 10000) in paragraph at lines 78--88
 
  []
 
 
-Overfull \hbox (26.437pt too wide) detected at line 93
+Underfull \hbox (badness 10000) in paragraph at lines 89--91
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 92--94
+
+ []
+
+
+Overfull \hbox (26.437pt too wide) detected at line 98
 []
  []
 
 [2]
-Overfull \hbox (11.43762pt too wide) detected at line 144
+Overfull \hbox (11.43762pt too wide) detected at line 149
 []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 144--146
+Underfull \hbox (badness 10000) in paragraph at lines 149--151
 
  []
 
 [3]
-Overfull \hbox (118.9193pt too wide) detected at line 195
+Overfull \hbox (118.9193pt too wide) detected at line 200
 []
  []
 
 [4] (Set 1.aux) ) 
 Here is how much of TeX's memory you used:
- 9627 strings out of 478927
- 149619 string characters out of 2852534
- 490306 words of memory out of 3000000
- 27347 multiletter control sequences out of 15000+600000
- 409348 words of font info for 49 fonts, out of 8000000 for 9000
+ 9896 strings out of 478927
+ 151789 string characters out of 2852534
+ 531306 words of memory out of 3000000
+ 27611 multiletter control sequences out of 15000+600000
+ 409683 words of font info for 51 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 83i,14n,131p,531b,387s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 83i,14n,131p,531b,1152s stack positions out of 5000i,500n,10000p,200000b,80000s
  <C:\Users\dalev\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen
 /ec/dpi600\tcrm1095.pk><C:/Users/dalev/AppData/Local/Programs/MiKTeX/fonts/type
 1/public/amsfonts/cm/cmbx10.pfb><C:/Users/dalev/AppData/Local/Programs/MiKTeX/f
@@ -988,10 +988,11 @@ sers/dalev/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pf
 b><C:/Users/dalev/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmr8.pfb><C:/Users/dalev/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
 nts/cm/cmsy10.pfb><C:/Users/dalev/AppData/Local/Programs/MiKTeX/fonts/type1/pub
-lic/amsfonts/cm/cmsy8.pfb>
-Output written on "Set 1.pdf" (4 pages, 119719 bytes).
+lic/amsfonts/cm/cmsy8.pfb><C:/Users/dalev/AppData/Local/Programs/MiKTeX/fonts/t
+ype1/public/amsfonts/cm/cmtt9.pfb>
+Output written on "Set 1.pdf" (4 pages, 131830 bytes).
 PDF statistics:
- 70 PDF objects out of 1000 (max. 8388607)
+ 75 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
