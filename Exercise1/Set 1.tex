@@ -154,11 +154,16 @@
 						\lambda_2 =\frac{p_2(1)-q_2(1)}{q_1(1)-q_2(1)}\\ \lambda_1(p_1(2)-p_2(2))+p_2(2)=\lambda_2(q_1(2)-q_2(2))+q_2(2)
 					\end{array}\right.\iff\\
 					&\left\{\begin{array}{ll}
-						\lambda_2 =\frac{p_2(1)-q_2(1)}{q_1(1)-q_2(1)}\\ \lambda_1(p_1(2)-p_2(2))+p_2(2)=\lambda_2(q_1(2)-q_2(2))+q_2(2)
+						\lambda_2 =\frac{p_2(1)-q_2(1)}{q_1(1)-q_2(1)}\\ \lambda_1(p_1(2)-p_2(2))+p_2(2)-q_2(2)=\frac{p_2(1)-q_2(1)}{q_1(1)-q_2(1)}(q_1(2)-q_2(2))
+					\end{array}\right.\iff\\
+					&\left\{\begin{array}{ll}
+						\lambda_2 =\frac{p_2(1)-q_2(1)}{q_1(1)-q_2(1)}\\ \lambda_1=\frac{p_2(1)-q_2(1)(q_1(2)-q_2(2))-(p_2(2)-q_2(2))(q_1(1)-q_2(1))}{(p_1(2)-p_2(2))(q_1(1)-q_2(1))}
 					\end{array}\right.
 				\end{align*}
+			
+				Else if $p_1(1)-p_2(1)\ne0$
 				\begin{align*}
-					&\left\{ \begin{array}{ll}
+					&(1)\iff\left\{ \begin{array}{ll}
 						\lambda_1(p_1(1)-p_2(1))+p_2(1) = \lambda_2(q_1(1)-q_2(1))+q_2(1)\\
 						\lambda_1(p_1(2)-p_2(2))+p_2(2) = \lambda_2(q_1(2)-q_2(2))+q_2(2)
 					\end{array}\right.
@@ -188,6 +193,7 @@
 						\lambda_2=\frac{(q_2(1)-p_2(1))(p_1(2)-p_2(2))+(p_1(1)-p_2(1))(p_2(2) -q_2(2))}{(p_1(1)-p_2(1))(q_1(2)-q_2(2))-(q_1(1)-q_2(1))(p_1(2)-p_2(2))}
 					\end{array}\right.
 				\end{align*}
+				In both these cases if $\lambda_1,\lambda_2\in[0,1]$, the line segments intersect and we return TRUE, else we return FALSE.
 		\end{itemize}
 		
 	\end{enumerate}

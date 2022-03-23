@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.10.27)  23 MAR 2022 15:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.10.27)  23 MAR 2022 18:44
 entering extended mode
 **"./Set 1.tex"
 (Set 1.tex
@@ -963,7 +963,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 144--146
  []
 
 [3]
-Overfull \hbox (118.9193pt too wide) detected at line 190
+Overfull \hbox (118.9193pt too wide) detected at line 195
 []
  []
 
@@ -971,7 +971,7 @@ Overfull \hbox (118.9193pt too wide) detected at line 190
 Here is how much of TeX's memory you used:
  9627 strings out of 478927
  149619 string characters out of 2852534
- 489306 words of memory out of 3000000
+ 490306 words of memory out of 3000000
  27347 multiletter control sequences out of 15000+600000
  409348 words of font info for 49 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -989,7 +989,7 @@ b><C:/Users/dalev/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmr8.pfb><C:/Users/dalev/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
 nts/cm/cmsy10.pfb><C:/Users/dalev/AppData/Local/Programs/MiKTeX/fonts/type1/pub
 lic/amsfonts/cm/cmsy8.pfb>
-Output written on "Set 1.pdf" (4 pages, 119202 bytes).
+Output written on "Set 1.pdf" (4 pages, 119719 bytes).
 PDF statistics:
  70 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
