@@ -1,0 +1,195 @@
+\documentclass[11pt]{article}
+%
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{moreenum}
+%%
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage{geometry} %header pos
+\geometry{
+	a4paper,
+	top=25mm
+}
+\usepackage{listings} %code snippets
+\lstdefinestyle{mystyle}{ 
+	basicstyle=\ttfamily\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true                   
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+\lstset{style=mystyle}
+\usepackage{subcaption} %subfigures
+\usepackage{color, amssymb}
+\usepackage[greek,english]{babel}
+%\usepackage[iso-8859-7]{inputenc}
+\usepackage{graphicx} %images
+\graphicspath{{./Images/}}
+\renewcommand{\baselinestretch}{1.5} %line spacing
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
+\usepackage{qtree}
+\usepackage[makeroom]{cancel}
+\usepackage{array}
+\newcommand{\latin}[1]{\textlatin{#1}} 
+\begin{document}
+	\noindent\rule{\textwidth}{2pt}
+	\begin{center}
+		{\b PLH 415} \\
+		Exercise Set 1\\
+		\begin{tabular}{ c c }
+			Alevrakis Dimitrios & 2017030001
+		\end{tabular}
+	\end{center}
+	\rule{\textwidth}{.5pt}%
+	\\
+	\noindent
+	\begin{enumerate}
+		\item [Problem 1]
+		The idea behind the range query on a binary search tree, is doing two searches on the lower and upper limits and then returning all the nodes of the right subtree of lower limit and the nodes of the left subtree of the upper limit.\\
+		Therefore assuming the range query in the space $[a,b]$.\\
+		We need to do a search for "$a$". That means going down the left subtree until the node key $k\leq a$. If $k<a$ we go up to the parent node, else we stay at that node. This search in general has a time complexity of $O(h)$ where $h$ the BST tree height. Then we need to return the nodes of the right subtree of found node, which has a time complexity of $O(k)$.\\
+		The algorithm for the search of upper limit node follows the same idea by, this time, going down the right subtree until the node key $k\geq a$. If $k>a$ we go up to the parent node, else we stay at that node. This search has also a time complexity of $O(h)$. Then, again, we need to return the nodes of the left subtree of found node, which has a time complexity of $O(k)$.\\
+		
+		Therefore the algorithm complexity is $O(n)+O(k)O(n)+O(k)=O(n+k)$
+		
+		\item[Problem 2]
+		We know that the convex combination of two points describe all the points in the line segment between those two points. Whereas the affine combination of two points describes all the point on the line through those two points.\\
+		
+		Convex Combination of two points ${\bf x_1},{\bf x_2}$:\\
+		$\displaystyle {\bf x}=\lambda{\bf x_1} + (1-\lambda){\bf x_2},\lambda\in[0,1]$\\
+		
+		Affine Combination of two points ${\bf x_1},{\bf x_2}$:\\
+		$\displaystyle {\bf x}=\lambda{\bf x_1} + (1-\lambda){\bf x_2},\lambda\in \mathcal{R}$\\
+		
+		Therefore for the pairs of endpoints $({\bf p_1},{\bf p_2})$ and $({\bf q_1},{\bf q_2})$, we need to calculate the $\lambda_1$ and $\lambda_2$ for which the affine combinations of $({\bf p_1},{\bf p_2})$ and $({\bf q_1},{\bf q_2})$ respectively, give the same point(the intersection). If $\lambda_1,\lambda_2\in[0,1]$, the intersection belongs in the line segments and thus they intersect.\\
+		
+		Calculation of $\lambda_1,\lambda_2$:\\
+		Let ${\bf p_1}=\begin{bmatrix}
+			p_1(1)\\p_1(2)
+		\end{bmatrix},{\bf p_2}=\begin{bmatrix}
+		p_2(1)\\p_2(2)
+		\end{bmatrix},{\bf q_1}=\begin{bmatrix}
+		q_1(1)\\q_1(2)
+		\end{bmatrix},{\bf q_2}=\begin{bmatrix}
+		q_2(1)\\q_2(2)
+		\end{bmatrix}$ assuming that ${\bf p_1}\ne {\bf p_2},{\bf q_1}\ne {\bf q_2}$\\
+	
+		The points given by the affine combination of the pair $({\bf p_1},{\bf p_2})$:\\
+		$\displaystyle {\bf p}=\lambda_1{\bf p_1}+(1-\lambda_1){\bf p_2}=\lambda_1({\bf p_1}-{\bf p_2})+{\bf p_2}$\\
+		
+		The points given by the affine combination of the pair $({\bf q_1},{\bf q_2})$:\\
+		$\displaystyle {\bf q}=\lambda_2{\bf q_1}+(1-\lambda_2){\bf q_2}=\lambda_2({\bf q_1}-{\bf q_2})+{\bf q_2}$\\
+		
+		First we check if the vectors defined by the endpoints are parallel, using the cross product:
+		\begin{align*}
+			|({\bf q_2}-{\bf q_1})\times({\bf q_2}-{\bf q_1})|=(q_2(1)-q_1(1))(p_2(2)-q_1(2))-(q_2(2)-q_1(2))(p_2(1)-q_1(1))
+		\end{align*}
+		\begin{itemize}
+			\item If $(q_2(1)-q_1(1))(p_2(2)-q_1(2))-(q_2(2)-q_1(2))(p_2(1)-q_1(1))=0$ then the line segments are parallel. Then the two line segments intersect only if one or both of the endpoints of one line segment belong in the other.\\
+			Which means that one of the following equalities must be true for some $\lambda\in [0,1]$:
+			\begin{align*}
+				{\bf p_1} = \lambda_1({\bf q_1}-{\bf q_2})+{\bf q_2}\iff \left\{\begin{array}{ll}
+					p_1(1)=\lambda_{1,x}(q_1(1)-q_2(1))+q_2(1) \\ p_1(2)=\lambda_{1,y}(q_1(2)-q_2(2))+q_2(2)
+				\end{array}\right.\\
+				{\bf p_2} = \lambda_2({\bf q_1}-{\bf q_2})+{\bf q_2}\iff \left\{\begin{array}{ll}
+					p_2(1)=\lambda_{2,x}(q_1(1)-q_2(1))+q_2(1) \\ p_2(2)=\lambda_{2,y}(q_1(2)-q_2(2))+q_2(2)
+				\end{array}\right.\\
+				{\bf q_1} = \lambda_3({\bf p_1}-{\bf p_2})+{\bf p_2}\iff \left\{\begin{array}{ll}
+					q_1(1)=\lambda_{3,x}(p_1(1)-p_2(1))+p_2(1) \\ q_1(2)=\lambda_{3,y}(p_1(2)-p_2(2))+p_2(2)
+				\end{array}\right.\\
+				{\bf q_2} = \lambda_4({\bf p_1}-{\bf p_2})+{\bf p_2}\iff 	\left\{\begin{array}{ll}
+					q_2(1)=\lambda_{4,x}(p_1(1)-p_2(1))+p_2(1) \\ 	q_2(2)=\lambda_{4,y}(p_1(2)-p_2(2))+p_2(2)
+				\end{array}\right.
+				\end{align*}
+				We can see that if $q_1(1)=q_2(1)$ or $q_1(2)=q_2(2)$ then it must be true that $q_1(1)=q_2(1)=p_1(1)=p_2(1)$ and $q_1(2)=q_2(2)=p_1(2)=p_2(2)$ respectively for the line segments to possibly intersect.\\
+				Also it must be true that $\lambda_x=\lambda_y$ for the line segments to be co-linear and to possibly intersect.\\
+				Then if any $\lambda\in [0,1]$, there is an intersection and the algorithm returns TRUE. In the other cases it returns FALSE.
+				
+				\item If $(q_2(1)-q_1(1))(p_2(2)-q_1(2))-(q_2(2)-q_1(2))(p_2(1)-q_1(1))\ne 0$.\\
+				The intersection is at the point ${\bf p}={\bf q}$, so
+				\begin{align*}
+					&{\bf p}={\bf q}\iff\\
+					&\lambda_1({\bf p_1}-{\bf p_2})+{\bf p_2}=\lambda_2({\bf q_1}-{\bf q_2})+{\bf q_2}\iff \\
+					&\lambda_1\big(\begin{bmatrix}
+						p_1(1) \\ p_1(2)
+					\end{bmatrix}-
+					\begin{bmatrix}
+						p_2(1) \\ p_2(2)
+					\end{bmatrix}\big)+
+					\begin{bmatrix}
+						p_2(1) \\ p_2(2)
+					\end{bmatrix}
+					=\lambda_2\big(\begin{bmatrix}
+						q_1(1) \\ q_1(2)
+					\end{bmatrix}-
+					\begin{bmatrix}
+						q_2(1) \\ q_2(2)
+					\end{bmatrix}\big)+
+					\begin{bmatrix}
+						q_2(1) \\ q_2(2)
+					\end{bmatrix}\iff\\
+					&\begin{bmatrix}
+						\lambda_1(p_1(1)-p_2(1))+p_2(1) \\ \lambda_1(p_1(2)-p_2(2))+p_2(2)
+					\end{bmatrix}=
+					\begin{bmatrix}
+						\lambda_2(q_1(1)-q_2(1))+q_2(1) \\ \lambda_2(q_1(2)-q_2(2))+q_2(2)
+					\end{bmatrix}\numberthis
+				\end{align*}
+				If $p_1(1)-p_2(1)=0$ then $p_1(2)-p_2(1)\ne0$ because ${\bf p_1}\ne {\bf p_2}$ and $q_(1)-q_2(1)\ne 0$ because $(q_2(1)-q_1(1))(p_2(2)-q_1(2))-(q_2(2)-q_1(2))(p_2(1)-q_1(1))\ne 0$\\
+				\begin{align*}
+					&(1)\iff\begin{bmatrix}
+						p_2(1) \\ \lambda_1(p_1(2)-p_2(2))+p_2(2)
+					\end{bmatrix}=
+					\begin{bmatrix}
+						\lambda_2(q_1(1)-q_2(1))+q_2(1) \\ \lambda_2(q_1(2)-q_2(2))+q_2(2)
+					\end{bmatrix}\iff\\
+					&\left\{\begin{array}{ll}
+						\lambda_2 =\frac{p_2(1)-q_2(1)}{q_1(1)-q_2(1)}\\ \lambda_1(p_1(2)-p_2(2))+p_2(2)=\lambda_2(q_1(2)-q_2(2))+q_2(2)
+					\end{array}\right.\iff\\
+					&\left\{\begin{array}{ll}
+						\lambda_2 =\frac{p_2(1)-q_2(1)}{q_1(1)-q_2(1)}\\ \lambda_1(p_1(2)-p_2(2))+p_2(2)=\lambda_2(q_1(2)-q_2(2))+q_2(2)
+					\end{array}\right.
+				\end{align*}
+				\begin{align*}
+					&\left\{ \begin{array}{ll}
+						\lambda_1(p_1(1)-p_2(1))+p_2(1) = \lambda_2(q_1(1)-q_2(1))+q_2(1)\\
+						\lambda_1(p_1(2)-p_2(2))+p_2(2) = \lambda_2(q_1(2)-q_2(2))+q_2(2)
+					\end{array}\right.
+					\iff\\
+					&\left\{ \begin{array}{ll}
+						\lambda_1 = \frac{\lambda_2(q_1(1)-q_2(1))+q_2(1)-p_2(1)}{p_1(1)-p_2(1)}\\
+						\frac{\lambda_2(q_1(1)-q_2(1))+q_2(1)-p_2(1)}{p_1(1)-p_2(1)}(p_1(2)-p_2(2))+p_2(2) = \lambda_2(q_1(2)-q_2(2))+q_2(2)
+					\end{array}\right.
+					\iff\\
+					&\left\{ \begin{array}{ll}
+						\lambda_1 = \frac{\lambda_2(q_1(1)-q_2(1))+q_2(1)-p_2(1)}{p_1(1)-p_2(1)}\\
+						\frac{\lambda_2(q_1(1)-q_2(1))}{p_1(1)-p_2(1)}(p_1(2)-p_2(2))+\frac{q_2(1)-p_2(1)}{p_1(1)-p_2(1)}(p_1(2)-p_2(2))+p_2(2) = \lambda_2(q_1(2)-q_2(2))+q_2(2)
+					\end{array}\right.
+					\iff\\
+					&\left\{ \begin{array}{ll}
+						\lambda_1 = \frac{\lambda_2(q_1(1)-q_2(1))+q_2(1)-p_2(1)}{p_1(1)-p_2(1)}\\
+						\frac{q_2(1)-p_2(1)}{p_1(1)-p_2(1)}(p_1(2)-p_2(2))+p_2(2) = \lambda_2[(q_1(2)-q_2(2))-\frac{(q_1(1)-q_2(1))}{p_1(1)-p_2(1)}(p_1(2)-p_2(2))]+q_2(2)
+					\end{array}\right.
+					\iff\\
+					&\left\{ \begin{array}{ll}
+						\lambda_1 = \frac{\lambda_2(q_1(1)-q_2(1))+q_2(1)-p_2(1)}{p_1(1)-p_2(1)}\\
+						\lambda_2=\frac{(q_2(1)-p_2(1))(p_1(2)-p_2(2))+(p_1(1)-p_2(1))(p_2(2) -q_2(2))}{(p_1(1)-p_2(1))(q_1(2)-q_2(2))-(q_1(1)-q_2(1))(p_1(2)-p_2(2))}
+					\end{array}\right.
+					\iff\\
+					&\left\{ \begin{array}{ll}
+						\lambda_1 = \frac{(q_2(1)-p_2(1))(p_1(2)-p_2(2))+(p_1(1)-p_2(1))(p_2(2) -q_2(2))}{(p_1(1)-p_2(1))(q_1(2)-q_2(2))-(q_1(1)-q_2(1))(p_1(2)-p_2(2))}\frac{(q_1(1)-q_2(1))+q_2(1)-p_2(1)}{p_1(1)-p_2(1)}\\
+						\lambda_2=\frac{(q_2(1)-p_2(1))(p_1(2)-p_2(2))+(p_1(1)-p_2(1))(p_2(2) -q_2(2))}{(p_1(1)-p_2(1))(q_1(2)-q_2(2))-(q_1(1)-q_2(1))(p_1(2)-p_2(2))}
+					\end{array}\right.
+				\end{align*}
+		\end{itemize}
+		
+	\end{enumerate}
+	
+\end{document} 
