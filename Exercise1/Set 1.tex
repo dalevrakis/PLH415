@@ -1,5 +1,12 @@
 \documentclass[11pt]{article}
 %
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	left=15mm,
+	right=15mm,
+	top=25mm,
+}
 \usepackage{enumerate}
 \usepackage{enumitem}
 \usepackage{moreenum}
@@ -64,6 +71,8 @@
 		
 		We can see that in general we have a complexity of $O(h)$ for the recursions and complexity of $O(k)$ for the keys found.\\
 		Therefore the total complexity is $O(h+k)$.
+		
+		\newpage
 		\item[Problem 2]
 		We know that the convex combination of two points describe all the points in the line segment between those two points. Whereas the affine combination of two points describes all the point on the line through those two points.\\
 		
@@ -200,7 +209,55 @@
 				\end{align*}
 				In both these cases if $\lambda_1,\lambda_2\in[0,1]$, the line segments intersect and we return TRUE, else we return FALSE.
 		\end{itemize}
+		\newpage
+		\item [Problem 5]
+		Let ${\bf p_i}=\begin{bmatrix}
+			p_i(1)\\p_i(2),p_i(3)
+		\end{bmatrix},i=1,2,3$, ${\bf a}=\begin{bmatrix}
+		a(1)\\a(2)\\a(3)
+	\end{bmatrix}$ , ${\bf D}=\begin{bmatrix}
+	D(1)\\D(2)\\D(3)
+\end{bmatrix}$.\\
+
+		In order to determine if the half-line intersects the triangle:
+		\begin{itemize}
+			\item We need to find the point at which th half-line intersects the supporting plane of the triangle.
+			\item Determine if the point lies in the triangle.
+		\end{itemize}
+		First we will calculate the plane defined by the vertices of the 3-d triangle.\\
+		The normal vector of the plane: $\displaystyle {\bf n}=\frac{({\bf p_2}-{\bf p_1})\times ({\bf p_3}-{\bf p_1})}{||{\bf p_2}-{\bf p_1}||||{\bf p_3}-{\bf p_1}||}$
 		
+		Therefore the plane defined by the points ${\bf p_i},i=1,2,3$\\
+		$\displaystyle n(1)x+n(2)y+n(3)z+k=0$.\\
+		
+		Where $k$ is calculated by replacing one of the vertices on the equation:\\
+		$\displaystyle n(1)p_1(1)+n(2)p_1(2)+n(3)p_1(3)+k=0\iff k=-n(1)p_1(1)-n(2)p_1(2)-n(3)p_1(3)$
+		
+		So we know that:\\
+		$\displaystyle n(1)x+n(2)y+n(3)z-n(1)p_1(1)-n(2)p_1(2)-n(3)p_1(3)=0$\\
+		
+		We will calculate the point at which the half-line intersects the plane.\\
+		We replace ${\bf a}+\lambda{\bf D}$ at the equation of the plane and solve for $\lambda$:
+		\begin{align*}
+			&n(1)(a(1)+\lambda D(1))+n(2)(a(2)+\lambda D(2))+n(3)(a(3)+\lambda D(3))-n(1)p_1(1)-n(2)p_1(2)-n(3)p_1(3)=0 \iff\\
+			&\lambda(n(1)D(1)+n(2)D(2)+n(3)D(3))+n(1)(a(1)-p_1(1))+n(2)(a(2)-p_1(2))+n(3)(a(3)-p_1(3))=0\iff\\
+			&\lambda=\frac{n(1)(a(1)-p_1(1))+n(1)(a(1)-p_1(1)n(2)(a(2)-p_1(2))+n(3)(a(3)-p_1(3))}{n(1)D(1)+n(2)D(2)+n(3)D(3)}=\frac{{{\bf n}\cdot({\bf a}-{\bf p_1})}}{{\bf n}\cdot{\bf D}}\numberthis
+		\end{align*}
+		If the denominator $n(1)D(1)+n(2)D(2)+n(3)D(3) = {\bf n}\cdot{\bf D}=0$, then the line is parallel to the support plane of the triangle. In this case the line could belong in the plane and the intersection would be infinite or the line does not intersect the plane. In both cases we say there is not a (unique) intersection.\\
+			
+		If $\lambda<0$ then the half-line does not intersect the plane and therefore not the triangle.\\
+		
+		If the half-line does intersect the plane then we need to determine if the intersection belongs to the inside of the triangle. This is true if the intersection is at the left of each side of the triangle.\\
+		
+		Let ${\bf p}$ be the intersection point of ${\bf a}+\lambda{\bf D}$ with the support plane of the triangle defined by the vertices ${\bf p_1},{\bf p_2},{\bf p_3}$
+		The following expression must be true for the intersection to belong inside the triangle:
+		\begin{itemize}
+			\item $({\bf p_1}-{\bf p_2})\times({\bf p_1}-{\bf p})>0$
+			\item $({\bf p_2}-{\bf p_3})\times({\bf p_2}-{\bf p})>0$
+			\item $({\bf p_3}-{\bf p_1})\times({\bf p_3}-{\bf p})>0$
+		\end{itemize}
+	
+		In conclusion the predicate calculates the $\lambda$ using the formula (2). If the lambda does not exist or negative it returns FALSE. If the $\lambda$ is positive, it checks if the above condition are met. If they are, the predicate returns TRUE and the intersection, else it returns FALSE.
 	\end{enumerate}
 	
 \end{document} 
